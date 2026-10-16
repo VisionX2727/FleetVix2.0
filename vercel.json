@@ -5,6 +5,10 @@
   "outputDirectory": "artifacts/fleet-manager/dist/public",
   "rewrites": [
     {
+      "source": "/api/:group/:rest*",
+      "destination": "/api/:group?__fleetx_original_api_path=:group/:rest*"
+    },
+    {
       "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
