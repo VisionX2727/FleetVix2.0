@@ -153,11 +153,11 @@ The published FleetX URL can continue serving a previous static frontend bundle 
 
 **How to apply:** When a user reports an old mobile UI after a frontend fix, compare the published asset hash with the current build and have the user publish the verified artifact before debugging the same stale client again.
 
-Workspace clients should retry authenticated API calls against the known production API origin when the hosting origin returns 404/405 for `/api` mutations.
+The Vercel-hosted FleetX frontend depends on a separately published Replit API; its `/api/*` rewrites only work while the configured Replit deployment URL is live.
 
-**Why:** Static frontend hosts can serve the SPA fallback for API paths or reject POST methods even though the Replit API service is healthy, causing both Owner and Driver actions to fail identically.
+**Why:** The frontend is a static Vite SPA and does not host the Express API. An unpublished or stale upstream can let Google sign-in succeed, then fail workspace bootstrap with `Workspace request failed (404)`.
 
-**How to apply:** Keep the same-origin request first for normal deployments, then retry only 404/405 responses against the production API origin; do not hide genuine 401/403/404 business errors from the API.
+**How to apply:** Verify the configured Vercel rewrite destination responds at `/api/healthz`; publish the API artifact and keep the rewrite URL aligned before debugging Supabase auth or workspace data.
 
 Full workspace JSON saves must be serialized per client and merged server-side for driver-owned records; manual refresh is safer than applying periodic full-state snapshots.
 
