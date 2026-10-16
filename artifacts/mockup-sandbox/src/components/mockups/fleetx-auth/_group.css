@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --background: 210 35% 8%;
+  --foreground: 210 40% 98%;
+  --card: 210 31% 17%;
+  --card-foreground: 210 40% 98%;
+  --card-border: 211 42% 25%;
+  --popover: 210 31% 17%;
+  --popover-foreground: 210 40% 98%;
+  --popover-border: 226 47% 18%;
+  --border: 211 42% 25%;
+  --input: 211 42% 25%;
+  --primary: 38 100% 50%;
+  --primary-foreground: 210 35% 8%;
+  --ring: 38 92% 50%;
+  --secondary: 211 42% 25%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 211 31% 20%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 226 47% 18%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 35% 8%;
+  --app-font-sans: "Inter", system-ui, sans-serif;
+  --app-font-serif: Georgia, serif;
+  --app-font-mono: Menlo, monospace;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: 226 47% 9%;
+  --foreground: 210 40% 98%;
+  --card: 226 47% 13%;
+  --card-foreground: 210 40% 98%;
+  --card-border: 226 47% 18%;
+  --popover: 226 47% 13%;
+  --popover-foreground: 210 40% 98%;
+  --popover-border: 226 47% 18%;
+  --border: 226 47% 18%;
+  --input: 226 47% 18%;
+  --primary: 38 92% 50%;
+  --primary-foreground: 226 47% 9%;
+  --ring: 38 92% 50%;
+  --secondary: 226 47% 18%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 226 47% 16%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 226 47% 18%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+}
+
+.fleetx-auth-preview {
+  font-family: "Inter", system-ui, sans-serif;
+}
