@@ -93,7 +93,12 @@ async function request<T>(path: string, token: string, init?: RequestInit): Prom
       } catch {
         // Keep the HTTP status useful when a proxy or server returns HTML.
       }
-      if (response.ok) return payload as T;
+      if (response.ok) {
+        if (!response.headers.get("content-type")?.toLowerCase().includes("application/json") || !raw || !Object.keys(payload).length) {
+          throw new Error("Could not load your FleetX workspace. Please try again.");
+        }
+        return payload as T;
+      }
 
       const serverMessage = typeof payload.error === "string" ? payload.error : "";
       lastError = new Error(
