@@ -1,13 +1,9 @@
 {
   "framework": "vite",
   "installCommand": "pnpm install --frozen-lockfile",
-  "buildCommand": "PORT=23693 BASE_PATH=/ pnpm run build",
+  "buildCommand": "pnpm --filter @workspace/api-server run build && PORT=23693 BASE_PATH=/ pnpm run build",
   "outputDirectory": "dist/public",
   "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "https://fx-2899--skynetxofficial.replit.app/api/:path*"
-    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
