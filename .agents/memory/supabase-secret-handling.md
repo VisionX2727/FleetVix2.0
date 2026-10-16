@@ -14,3 +14,9 @@ Shell commands may not receive Replit Secrets even when managed workflows do. A 
 **Why:** An external schema operation can otherwise target the Replit-managed database instead of the app's Supabase project.
 
 **How to apply:** Run Supabase schema operations only in a secret-injected managed workflow and verify the configured Supabase project identity before any writes.
+
+Replit Secrets and Vercel environment variables are separate. A Replit remix may show secret names without copying their values, and those values do not populate a connected Vercel project's Production environment.
+
+**Why:** The frontend can still complete Google sign-in while the server-side database URL is missing, causing workspace API requests to fail after authentication.
+
+**How to apply:** Check server-only database settings in the environment that runs the API; set `SUPABASE_DB_URL` separately in Vercel Production when the API is hosted there.
